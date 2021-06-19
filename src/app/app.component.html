@@ -1,52 +1,81 @@
 <div class="content">
   <h1>Magician Editor</h1>
-	<div class="card-container">
-	  <div>
-      <label for="name">Name</label>
-      <input id="name" class="card">
+  <form [formGroup]="magicianForm" (ngSubmit)="onSubmit()">
+    <div class="card-container">
+      <div>
+        Name
+        <input class="card" formControlName="name">
+        <div *ngIf="magicianForm.get('name')?.errors?.required" class="error">
+          Name is required
+        </div>
+        <div *ngIf="magicianForm.get('name')?.errors?.minlength" class="error">
+          Must be atleast 5 characters
+        </div>
+        <div *ngIf="magicianForm.get('name')?.errors?.maxlength" class="error">
+          Must not exceed 30 characters
+        </div>
+        <div *ngIf="magicianForm.get('name')?.errors?.pattern" class="error">
+          Must be only letters
+        </div>
+      </div>
+      <div>
+        Birthday
+        <input class="card" type="date" formControlName="birthday">
+        <div *ngIf="magicianForm.get('birthday')?.errors?.required" class="error">
+          Birthday is required
+        </div>
+        <div *ngIf="magicianForm.get('birthday')?.errors?.invalidAge" class="error">
+          Must be atleast 20 years old
+        </div>
+      </div>
+      <div>
+        Element
+        <select name="element" class="card select" formControlName="element">
+          <option *ngFor="let element of elements" value="{{element.key}}">{{element.value}}</option>
+        </select>
+        <div *ngIf="magicianForm.get('element')?.errors?.required" class="error">
+          Element is required
+        </div>
+      </div>
+      <div>
+        Intelligence
+        <input class="card" type="range" list="int-ticks" min="50" max="100" formControlName="intelligence">
+        <datalist id="int-ticks">
+          <option value="50" label="50"></option>
+          <option value="60"></option>
+          <option value="70"></option>
+          <option value="80"></option>
+          <option value="90"></option>
+          <option value="100" label="100"></option>
+        </datalist>
+      </div>
+      <div>
+        Wisdom
+        <input class="card" type="range" list="wisdom-ticks" min="50" max="100" formControlName="wisdom">
+        <datalist id="wisdom-ticks">
+          <option value="50" label="50"></option>
+          <option value="60"></option>
+          <option value="70"></option>
+          <option value="80"></option>
+          <option value="90"></option>
+          <option value="100" label="100"></option>
+        </datalist>
+      </div>
+      <div>
+        <button class="button" type="submit" [disabled]="magicianForm.invalid">Submit</button>
+      </div>
+      <div *ngIf="magicianForm.errors?.invalidFire" class="error">
+        Fire Magician must have atleast 60 Intelligence
+      </div>
+      <div *ngIf="magicianForm.errors?.invalidIce" class="error">
+        Ice Magician must have atleast 75 Intelligence
+      </div>
+      <div *ngIf="magicianForm.errors?.invalidWater" class="error">
+        Water Magician must have atleast 65 Wisdom
+      </div>
+      <div *ngIf="magicianForm.errors?.invalidThunder" class="error">
+        Thunder Magician must have atleast 80 Wisdom
+      </div>
     </div>
-	  <div>
-      <label for="birthday">Birthday</label>
-      <input id="birthday" class="card" type="date">
-    </div>
-	  <div>
-      <label for="element">Element</label>
-      <select id="element" name="element" class="card select">
-        <option value="fire">Fire</option>
-        <option value="ice">Ice</option>
-        <option value="water">Water</option>
-        <option value="thunder">Thunder</option>
-        <option value="light">Light</option>
-        <option value="darkness">Darkness</option>
-        <option value="nature">Nature</option>
-      </select>
-    </div>
-	  <div>
-      <label for="intelligence">Intelligence</label>
-      <input id="intelligence" class="card" type="range" list="int-ticks" min="50" max="100">
-      <datalist id="int-ticks">
-        <option value="50" label="50"></option>
-        <option value="60"></option>
-        <option value="70"></option>
-        <option value="80"></option>
-        <option value="90"></option>
-        <option value="100" label="100"></option>
-      </datalist>
-    </div>
-	  <div>
-      <label for="wisdom">Wisdom</label>
-      <input id="wisdom" class="card" type="range" list="wisdom-ticks" min="50" max="100">
-      <datalist id="wisdom-ticks">
-        <option value="50" label="50"></option>
-        <option value="60"></option>
-        <option value="70"></option>
-        <option value="80"></option>
-        <option value="90"></option>
-        <option value="100" label="100"></option>
-      </datalist>
-    </div>
-    <div>
-      <button class="card" type="submit">Submit</button>
-    </div>
-	</div>
+  </form>
 </div>
