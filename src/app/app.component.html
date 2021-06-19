@@ -1,10 +1,10 @@
 <div class="content">
   <h1>Magician Editor</h1>
   <form [formGroup]="magicianForm" (ngSubmit)="onSubmit()">
-    <div class="card-container">
+    <div class="form-container">
       <div>
         Name
-        <input class="card" formControlName="name">
+        <input class="form-field" formControlName="name">
         <div *ngIf="control('name')?.errors?.required" class="error">
           Name is required
         </div>
@@ -20,7 +20,7 @@
       </div>
       <div>
         Birthday
-        <input class="card" type="date" formControlName="birthday">
+        <input class="form-field" type="date" formControlName="birthday">
         <div *ngIf="control('birthday')?.errors?.required" class="error">
           Birthday is required
         </div>
@@ -30,7 +30,7 @@
       </div>
       <div>
         Element
-        <select name="element" class="card select" formControlName="element">
+        <select name="element" class="form-field select" formControlName="element">
           <option *ngFor="let element of elements" value="{{element.key}}">{{element.value}}</option>
         </select>
         <div *ngIf="control('element')?.errors?.required" class="error">
@@ -39,7 +39,7 @@
       </div>
       <div>
         Intelligence
-        <input class="card" type="range" list="int-ticks" min="50" max="100" formControlName="intelligence">
+        <input class="form-field" type="range" list="int-ticks" min="50" max="100" formControlName="intelligence">
         <datalist id="int-ticks">
           <option value="50" label="50"></option>
           <option value="60"></option>
@@ -51,7 +51,7 @@
       </div>
       <div>
         Wisdom
-        <input class="card" type="range" list="wisdom-ticks" min="50" max="100" formControlName="wisdom">
+        <input class="form-field" type="range" list="wisdom-ticks" min="50" max="100" formControlName="wisdom">
         <datalist id="wisdom-ticks">
           <option value="50" label="50"></option>
           <option value="60"></option>
