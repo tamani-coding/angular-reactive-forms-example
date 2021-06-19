@@ -51,19 +51,23 @@ export class AppComponent {
 
   private validAttributes(control: AbstractControl): ValidationErrors | null {
 
-    if (control.get('element')?.value == 'fire' && control.get('intelligence')?.value < 60) {
+    const element = control.get('element')?.value
+    const intelligence = control.get('intelligence')?.value
+    const wisdom = control.get('wisdom')?.value
+
+    if (element == 'fire' && intelligence < 60) {
       return { 'invalidFire': true }
     }
 
-    if (control.get('element')?.value == 'ice' && control.get('intelligence')?.value < 75) {
+    if (element == 'ice' && intelligence < 75) {
       return { 'invalidIce': true }
     }
 
-    if (control.get('element')?.value == 'water' && control.get('wisdom')?.value < 65) {
+    if (element == 'water' && wisdom < 65) {
       return { 'invalidWater': true }
     }
 
-    if (control.get('element')?.value == 'thunder' && control.get('wisdom')?.value < 80) {
+    if (element == 'thunder' && wisdom < 80) {
       return { 'invalidThunder': true }
     }
 
