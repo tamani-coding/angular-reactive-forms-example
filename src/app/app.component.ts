@@ -18,8 +18,8 @@ export class AppComponent {
       name: formBuilder.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.pattern('^[A-Za-z \-]*$')]),
       birthday: formBuilder.control('', [Validators.required, this.atLeastTwenty]),
       element: formBuilder.control('', [Validators.required]),
-      intelligence: formBuilder.control(60),
-      wisdom: formBuilder.control(60)
+      intelligence: formBuilder.control(50),
+      wisdom: formBuilder.control(50)
     }, { validators: [this.validAttributes] });
   }
 
