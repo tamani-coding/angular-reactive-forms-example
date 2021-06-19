@@ -1,0 +1,52 @@
+<div class="content">
+  <h1>Magician Editor</h1>
+	<div class="card-container">
+	  <div>
+      <label for="name">Name</label>
+      <input id="name" class="card">
+    </div>
+	  <div>
+      <label for="birthday">Birthday</label>
+      <input id="birthday" class="card" type="date">
+    </div>
+	  <div>
+      <label for="element">Element</label>
+      <select id="element" name="element" class="card select">
+        <option value="fire">Fire</option>
+        <option value="ice">Ice</option>
+        <option value="water">Water</option>
+        <option value="thunder">Thunder</option>
+        <option value="light">Light</option>
+        <option value="darkness">Darkness</option>
+        <option value="nature">Nature</option>
+      </select>
+    </div>
+	  <div>
+      <label for="intelligence">Intelligence</label>
+      <input id="intelligence" class="card" type="range" list="int-ticks" min="50" max="100">
+      <datalist id="int-ticks">
+        <option value="50" label="50"></option>
+        <option value="60"></option>
+        <option value="70"></option>
+        <option value="80"></option>
+        <option value="90"></option>
+        <option value="100" label="100"></option>
+      </datalist>
+    </div>
+	  <div>
+      <label for="wisdom">Wisdom</label>
+      <input id="wisdom" class="card" type="range" list="wisdom-ticks" min="50" max="100">
+      <datalist id="wisdom-ticks">
+        <option value="50" label="50"></option>
+        <option value="60"></option>
+        <option value="70"></option>
+        <option value="80"></option>
+        <option value="90"></option>
+        <option value="100" label="100"></option>
+      </datalist>
+    </div>
+    <div>
+      <button class="card" type="submit">Submit</button>
+    </div>
+	</div>
+</div>
