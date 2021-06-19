@@ -5,26 +5,26 @@
       <div>
         Name
         <input class="card" formControlName="name">
-        <div *ngIf="magicianForm.get('name')?.errors?.required" class="error">
+        <div *ngIf="control('name')?.errors?.required" class="error">
           Name is required
         </div>
-        <div *ngIf="magicianForm.get('name')?.errors?.minlength" class="error">
+        <div *ngIf="control('name')?.errors?.minlength" class="error">
           Must be atleast 5 characters
         </div>
-        <div *ngIf="magicianForm.get('name')?.errors?.maxlength" class="error">
+        <div *ngIf="control('name')?.errors?.maxlength" class="error">
           Must not exceed 30 characters
         </div>
-        <div *ngIf="magicianForm.get('name')?.errors?.pattern" class="error">
+        <div *ngIf="control('name')?.errors?.pattern" class="error">
           Must be only englisch letters
         </div>
       </div>
       <div>
         Birthday
         <input class="card" type="date" formControlName="birthday">
-        <div *ngIf="magicianForm.get('birthday')?.errors?.required" class="error">
+        <div *ngIf="control('birthday')?.errors?.required" class="error">
           Birthday is required
         </div>
-        <div *ngIf="magicianForm.get('birthday')?.errors?.invalidAge" class="error">
+        <div *ngIf="control('birthday')?.errors?.invalidAge" class="error">
           Must be atleast 20 years old
         </div>
       </div>
@@ -33,7 +33,7 @@
         <select name="element" class="card select" formControlName="element">
           <option *ngFor="let element of elements" value="{{element.key}}">{{element.value}}</option>
         </select>
-        <div *ngIf="magicianForm.get('element')?.errors?.required" class="error">
+        <div *ngIf="control('element')?.errors?.required" class="error">
           Element is required
         </div>
       </div>

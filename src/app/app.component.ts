@@ -25,6 +25,10 @@ export class AppComponent {
     });
   }
 
+  public control(name: string) {
+    return this.magicianForm.get(name)
+  }
+
   public onSubmit() {
     console.log(this.magicianForm.value)
   }
