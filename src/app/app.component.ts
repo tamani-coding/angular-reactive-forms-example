@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +15,14 @@ export class AppComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.magicianForm = this.formBuilder.group({
-      name: formBuilder.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.pattern('^[A-Za-z \-]*$')]),
-      birthday: formBuilder.control('', [Validators.required, this.atLeastTwenty]),
-      element: formBuilder.control('', [Validators.required]),
+      name: formBuilder.control('', [ Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.pattern('^[A-Za-z \-]*$') ]),
+      birthday: formBuilder.control('', [ Validators.required, this.atLeastTwenty ]),
+      element: formBuilder.control('', [ Validators.required ]),
       intelligence: formBuilder.control(50),
       wisdom: formBuilder.control(50)
-    }, { validators: [this.validAttributes] });
+    }, {
+      validators: [this.validAttributes]
+    });
   }
 
   public onSubmit() {
